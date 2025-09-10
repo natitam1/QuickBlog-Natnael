@@ -29,8 +29,8 @@ const Footer = () => {
           <img className="w-32 sm:w-44" src={assets.logo} alt="logo" />
           <p className="max-w-[410px] mt-6">
             We build cutting-edge AI solutions that help businesses work smarter
-            and faster. Our mission is to make advanced technology accessible,
-            reliable, and impactful.
+            and faster. Our mission is to make advanced technology accessible
+            and impactful.
           </p>
         </div>
         <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
