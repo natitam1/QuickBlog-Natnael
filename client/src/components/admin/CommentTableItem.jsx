@@ -17,12 +17,23 @@ const CommentTableItem = ({ comment, fetchComments }) => {
         {BlogDate.toLocaleDateString()}
       </td>
       <td className="px-6 py-4">
-        <div>
+        <div className="inline-flex items-center gap-4">
           {!comment.isApproved ? (
-            <img src={assets.tick_icon} alt="" />
+            <img
+              className="w-5 hover:scale-110 transition-all cursor-pointer"
+              src={assets.tick_icon}
+              alt=""
+            />
           ) : (
-            <p>Approved</p>
+            <p className="text-xs border border-r-green-600 bg-green-100 text-green-600 rounded-full px-3 py-1">
+              Approved
+            </p>
           )}
+          <img
+            src={assets.bin_icon}
+            className="w-5 hover:scale-110 transition-all cursor-pointer"
+            alt=""
+          />
         </div>
       </td>
     </div>
