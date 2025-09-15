@@ -5,7 +5,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
   const { blog, createdAt, _id } = comment;
   const BlogDate = new Date(createdAt);
   return (
-    <div className="order-y border-gray-300">
+    <tr className="border-y border-gray-300">
       <td className="px-6 py-4">
         <b className="font-medium text-gray-600">Blog</b> : {blog.title}
         <br />
@@ -25,7 +25,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
               alt=""
             />
           ) : (
-            <p className="text-xs border border-r-green-600 bg-green-100 text-green-600 rounded-full px-3 py-1">
+            <p className="text-xs border border-green-600 bg-green-100 text-green-600 rounded-full px-3 py-1">
               Approved
             </p>
           )}
@@ -36,7 +36,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
           />
         </div>
       </td>
-    </div>
+    </tr>
   );
 };
 
