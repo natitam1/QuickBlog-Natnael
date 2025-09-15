@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { comments_data } from "../../assets/assets";
 
 const Comments = () => {
@@ -7,7 +7,11 @@ const Comments = () => {
   const fetchcomments = async () => {
     setComments(comments_data);
   };
-  return <div>Comments</div>;
+
+  useEffect(() => {
+    fetchcomments();
+  }, []);
+  return <div className="flex-1 pt-5 px-5"></div>;
 };
 
 export default Comments;
