@@ -9,3 +9,5 @@ const auth = (req, res, next) => {
     res.json({ success: false, message: "Invalid Token" });
   }
 };
+
+export default auth;
