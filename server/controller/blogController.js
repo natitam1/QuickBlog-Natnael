@@ -1,5 +1,6 @@
 import fs from "fs";
 import imagekit from "../configs/imageKit.js";
+import Blog from "../models/Blog.js";
 
 export const addBlog = async (req, res) => {
   try {
@@ -32,5 +33,14 @@ export const addBlog = async (req, res) => {
       ],
     });
     const image = optimizedImageUrl;
+
+    await Blog.create({
+      title,
+      subTitle,
+      description,
+      category,
+      image,
+      isPublished,
+    });
   } catch (error) {}
 };
