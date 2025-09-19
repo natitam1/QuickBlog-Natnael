@@ -44,5 +44,7 @@ export const addBlog = async (req, res) => {
     });
 
     res.json({ success: true, message: "Blog added successfully" });
-  } catch (error) {}
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
 };
