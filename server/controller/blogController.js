@@ -21,6 +21,7 @@ export const addBlog = async (req, res) => {
       fileName: imageFile.originalname,
       folder: "/blogs",
     });
+
     // Optimization through imagekit URL transformation
     const optimizedImageUrl = imagekit.url({
       path: response.filePath,
@@ -30,5 +31,6 @@ export const addBlog = async (req, res) => {
         { width: "1280" }, // Width resizing
       ],
     });
+    const image = optimizedImageUrl;
   } catch (error) {}
 };
