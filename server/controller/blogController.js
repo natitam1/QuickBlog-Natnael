@@ -42,5 +42,7 @@ export const addBlog = async (req, res) => {
       image,
       isPublished,
     });
+
+    res.json({ success: true, message: "Blog added successfully" });
   } catch (error) {}
 };
