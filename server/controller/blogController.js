@@ -21,5 +21,14 @@ export const addBlog = async (req, res) => {
       fileName: imageFile.originalname,
       folder: "/blogs",
     });
+    // Optimization through imagekit URL transformation
+    const optimizedImageUrl = imagekit.url({
+      path: response.filePath,
+      transformation: [
+        { quality: "auto" }, // Auto compression
+        { format: "webp" }, // Convert to modern format
+        { width: "1280" }, // Width resizing
+      ],
+    });
   } catch (error) {}
 };
