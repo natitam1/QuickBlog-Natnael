@@ -80,3 +80,13 @@ export const deleteBlogById = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+export const togglePublish = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const blog = await Blog.findById(id);
+    blog.isPublished = !blog.isPublished;
+    res.json({ success: true, message: "Blog status updated" });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
