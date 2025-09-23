@@ -1,9 +1,31 @@
 import React from "react";
 import { assets } from "../../assets/assets";
+import { useAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 const BlogTableItem = ({ blog, fetchBlogs, index }) => {
+  const { axios } = useAppContext();
   const { title, createdAt } = blog;
   const BlogDate = new Date(createdAt);
+
+  const deleteBlog = async () => {
+    const confirm = window.confirm(
+      "Are you sure you wanted to delete this blog?"
+    );
+    if (confirm) return;
+
+    try {
+      const { data } = await axios.post("/api/blog/delete", { id: blog._id });
+      if (data.success) {
+        toast.success(data.message);
+        await fetchBlogs();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
   return (
     <tr className="border-y border-gray-300">
       <th className="px-2 py-4">{index}</th>
