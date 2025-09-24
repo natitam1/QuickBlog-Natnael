@@ -13,7 +13,7 @@ async function main(prompt) {
     ],
   });
 
-  // ✅ Access candidates directly (not response.response)
+  // Access candidates directly (not response.response)
   return (
     response?.candidates?.[0]?.content?.parts?.[0]?.text ||
     "No content generated."
