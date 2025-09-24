@@ -18,6 +18,11 @@ QuickBlog is a full-stack blog platform built with the MERN stack, Google Gemini
 - Google Gemini API
 - ImageKit API
 
+## Live Preview
+
+Check out the live version of the app here:  
+[https://quick-blog-natnael.vercel.app/](https://quick-blog-natnael.vercel.app/)
+
 ## Setup
 
 ```bash
