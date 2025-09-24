@@ -22,6 +22,23 @@ const CommentTableItem = ({ comment, fetchComments }) => {
       toast.error(error.message);
     }
   };
+  const deleteComment = async () => {
+    const confirm = window.confirm("Are you sure you want to delete comment?");
+    if (!confirm) return;
+    try {
+      const { data } = await axios.post("/api/admin/delete-comment", {
+        id: _id,
+      });
+      if (data.success) {
+        toast.success(data.message);
+        fetchComments();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   return (
     <tr className="border-y border-gray-300">
@@ -39,6 +56,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
         <div className="inline-flex items-center gap-4">
           {!comment.isApproved ? (
             <img
+              onClick={approveComment}
               className="w-5 hover:scale-110 transition-all cursor-pointer"
               src={assets.tick_icon}
               alt=""
@@ -49,6 +67,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
             </p>
           )}
           <img
+            onClick={deleteComment}
             src={assets.bin_icon}
             className="w-5 hover:scale-110 transition-all cursor-pointer"
             alt=""
